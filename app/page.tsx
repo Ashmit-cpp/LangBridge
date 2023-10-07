@@ -1,23 +1,16 @@
-import Pricing from '@/components/Pricing';
-import {
-  getSession,
-  getSubscription,
-  getActiveProductsWithPrices
-} from '@/app/supabase-server';
+import Translator from "@/components/Translator";
+import Welcome from "@/components/ui/welcome";
 
-export default async function PricingPage() {
-  const [session, products, subscription] = await Promise.all([
-    getSession(),
-    getActiveProductsWithPrices(),
-    getSubscription()
-  ]);
-
+export default function Home() {
   return (
-    <Pricing
-      session={session}
-      user={session?.user}
-      products={products}
-      subscription={subscription}
-    />
+    <div className="bg-gray-900 mt-20">
+      <div className="mx-8">
+        <Welcome />
+      </div>
+
+      <div className="bg-gray-800 mx-24 shadow-xl my-2 border-4 border-gray-600 rounded-2xl	">
+        <Translator />
+      </div>
+    </div>
   );
 }

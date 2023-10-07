@@ -72,39 +72,16 @@ export default function Pricing({
     }
   };
 
-  if (!products.length)
-    return (
-      <section className="bg-black">
-        <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
-          <div className="sm:flex sm:flex-col sm:align-center"></div>
-          <p className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-            No subscription pricing plans found. Create them in your{' '}
-            <a
-              className="text-pink-500 underline"
-              href="https://dashboard.stripe.com/products"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Stripe Dashboard
-            </a>
-            .
-          </p>
-        </div>
-        <LogoCloud />
-      </section>
-    );
-
   if (products.length === 1)
     return (
-      <section className="bg-black">
-        <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
+      <section className="bg-gray-900">
+        <div className="max-w-6xl px-4 py-4 mx-auto sm:py-24 sm:px-6 lg:px-8 mt-2">
           <div className="sm:flex sm:flex-col sm:align-center">
-            <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
+            <h1 className="text-2xl font-extrabold text-white sm:text-center sm:text-6xl">
               Pricing Plans
             </h1>
             <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
-              Start building for free, then add a site plan to go live. Account
-              plans unlock additional features.
+            Upgrade your Translation
             </p>
             <div className="relative flex self-center mt-12 border rounded-lg bg-zinc-900 border-zinc-800">
               <div className="border border-pink-500 border-opacity-50 divide-y rounded-lg shadow-sm bg-zinc-900 divide-zinc-600">
@@ -157,32 +134,30 @@ export default function Pricing({
               })}
             </div>
           </div>
-          <LogoCloud />
         </div>
       </section>
     );
 
   return (
-    <section className="bg-black">
-      <div className="max-w-6xl px-4 py-8 mx-auto sm:py-24 sm:px-6 lg:px-8">
+    <section className="bg-gray-900">
+      <div className="max-w-6xl px-4 py-2 mx-auto sm:py-24 sm:px-6 lg:px-4">
         <div className="sm:flex sm:flex-col sm:align-center">
           <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             Pricing Plans
           </h1>
-          <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
-            Start building for free, then add a site plan to go live. Account
-            plans unlock additional features.
+          <p className="max-w-2xl m-auto mt-3 text-xl text-zinc-200 sm:text-center sm:text-2xl">
+          Upgrade your Translation
           </p>
-          <div className="relative self-center mt-6 bg-zinc-900 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
+          <div className="relative self-center mt-6 bg-gray-700 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
             {intervals.includes('month') && (
               <button
                 onClick={() => setBillingInterval('month')}
                 type="button"
                 className={`${
                   billingInterval === 'month'
-                    ? 'relative w-1/2 bg-zinc-700 border-zinc-800 shadow-sm text-white'
+                    ? 'relative w-1/2 bg-gray-900 border-zinc-800 shadow-sm text-white'
                     : 'ml-0.5 relative w-1/2 border border-transparent text-zinc-400'
-                } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
+                } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap sm:w-auto sm:px-8`}
               >
                 Monthly billing
               </button>
@@ -193,9 +168,9 @@ export default function Pricing({
                 type="button"
                 className={`${
                   billingInterval === 'year'
-                    ? 'relative w-1/2 bg-zinc-700 border-zinc-800 shadow-sm text-white'
+                    ? 'relative w-1/2 bg-gray-900 border-zinc-800 shadow-sm text-white'
                     : 'ml-0.5 relative w-1/2 border border-transparent text-zinc-400'
-                } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
+                } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap sm:w-auto sm:px-8`}
               >
                 Yearly billing
               </button>
@@ -215,22 +190,22 @@ export default function Pricing({
             }).format((price?.unit_amount || 0) / 100);
             return (
               <div
-                key={product.id}
-                className={cn(
-                  'rounded-lg shadow-sm divide-y divide-zinc-600 bg-zinc-900',
-                  {
-                    'border border-pink-500': subscription
-                      ? product.name === subscription?.prices?.products?.name
-                      : product.name === 'Freelancer'
-                  }
-                )}
-              >
-                <div className="p-6">
+              key={product.id}
+              className={cn(
+                'rounded-lg shadow-sm bg-gray-800',
+                'flex flex-col h-full' 
+              )}
+            >
+              <div className="p-6 flex flex-col justify-between h-full">
+                <div>
                   <h2 className="text-2xl font-semibold leading-6 text-white">
                     {product.name}
                   </h2>
-                  <p className="mt-4 text-zinc-300">{product.description}</p>
-                  <p className="mt-8">
+                  <p className="mt-3 text-zinc-300">{product.description}</p>
+                </div>
+             
+                <div>
+                  <p className="mt-5">
                     <span className="text-5xl font-extrabold white">
                       {priceString}
                     </span>
@@ -238,80 +213,26 @@ export default function Pricing({
                       /{billingInterval}
                     </span>
                   </p>
-                  <Button
-                    variant="slim"
-                    type="button"
-                    disabled={!session}
-                    loading={priceIdLoading === price.id}
-                    onClick={() => handleCheckout(price)}
-                    className="block w-full py-2 mt-8 text-sm font-semibold text-center text-white rounded-md hover:bg-zinc-900"
-                  >
-                    {subscription ? 'Manage' : 'Subscribe'}
-                  </Button>
+                  <div>
+                    <Button
+                      variant="slim"
+                      type="button"
+                      disabled={!session}
+                      loading={priceIdLoading === price.id}
+                      onClick={() => handleCheckout(price)}
+                      className="block w-full py-2 mt-6 text-sm font-semibold text-center text-white rounded-md hover:bg-gray-900"
+                    >
+                      {subscription ? 'Manage' : 'Subscribe'}
+                    </Button>
+                  </div>
                 </div>
               </div>
+            </div>
+            
             );
           })}
         </div>
-        <LogoCloud />
       </div>
     </section>
-  );
-}
-
-function LogoCloud() {
-  return (
-    <div>
-      <p className="mt-24 text-xs uppercase text-zinc-400 text-center font-bold tracking-[0.3em]">
-        Brought to you by
-      </p>
-      <div className="flex flex-col items-center my-12 space-y-4 sm:mt-8 sm:space-y-0 md:mx-auto md:max-w-2xl sm:grid sm:gap-6 sm:grid-cols-5">
-        <div className="flex items-center justify-start">
-          <a href="https://nextjs.org" aria-label="Next.js Link">
-            <img
-              src="/nextjs.svg"
-              alt="Next.js Logo"
-              className="h-12 text-white"
-            />
-          </a>
-        </div>
-        <div className="flex items-center justify-start">
-          <a href="https://vercel.com" aria-label="Vercel.com Link">
-            <img
-              src="/vercel.svg"
-              alt="Vercel.com Logo"
-              className="h-6 text-white"
-            />
-          </a>
-        </div>
-        <div className="flex items-center justify-start">
-          <a href="https://stripe.com" aria-label="stripe.com Link">
-            <img
-              src="/stripe.svg"
-              alt="stripe.com Logo"
-              className="h-12 text-white"
-            />
-          </a>
-        </div>
-        <div className="flex items-center justify-start">
-          <a href="https://supabase.io" aria-label="supabase.io Link">
-            <img
-              src="/supabase.svg"
-              alt="supabase.io Logo"
-              className="h-10 text-white"
-            />
-          </a>
-        </div>
-        <div className="flex items-center justify-start">
-          <a href="https://github.com" aria-label="github.com Link">
-            <img
-              src="/github.svg"
-              alt="github.com Logo"
-              className="h-8 text-white"
-            />
-          </a>
-        </div>
-      </div>
-    </div>
   );
 }
