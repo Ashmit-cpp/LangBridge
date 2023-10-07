@@ -5,6 +5,7 @@ import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs';
 import type { SupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import { createContext, useContext, useEffect, useState } from 'react';
+export const dynamic = 'force-dynamic'
 
 type SupabaseContext = {
   supabase: SupabaseClient<Database>;

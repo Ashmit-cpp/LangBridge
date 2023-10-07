@@ -3,6 +3,7 @@ import React, { useState, ChangeEvent } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { ComboboxForm } from "@/components/ui/langselect";
 import Button from '@/components/ui/Button';
+export const dynamic = 'force-dynamic'
 
 function Translator() {
   const [inputText, setInputText] = useState(""); // State to hold input text

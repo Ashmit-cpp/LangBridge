@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createServerSupabaseClient } from '@/app/supabase-server';
 import Logo from '@/components/icons/Logo';
 import SignOutButton from './SignOutButton';
+export const dynamic = 'force-dynamic'
 
 export default async function Navbar() {
   const supabase = createServerSupabaseClient();

@@ -4,11 +4,13 @@ import { stripe } from '@/utils/stripe';
 import { createOrRetrieveCustomer } from '@/utils/supabase-admin';
 import { getURL } from '@/utils/helpers';
 import { Database } from '@/types_db';
+export const dynamic = 'force-dynamic'
 
 export async function POST(req: Request) {
   if (req.method === 'POST') {
     try {
-      const supabase = createRouteHandlerClient<Database>({cookies});
+      const cookieStore = cookies()
+      const supabase = createRouteHandlerClient<Database>({ cookies: () => cookieStore});
       const {
         data: { user }
       } = await supabase.auth.getUser();

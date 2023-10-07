@@ -1,5 +1,6 @@
 import Translator from "@/components/Translator";
 import Welcome from "@/components/ui/welcome";
+export const dynamic = 'force-dynamic'
 
 export default function Home() {
   return (

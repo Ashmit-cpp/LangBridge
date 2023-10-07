@@ -2,6 +2,7 @@
 
 import { useSupabase } from '@/app/supabase-provider';
 import { useRouter } from 'next/navigation';
+export const dynamic = 'force-dynamic'
 
 export default function SignOutButton() {
   const router = useRouter();
