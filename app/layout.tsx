@@ -6,27 +6,20 @@ import 'styles/main.css';
 const meta = {
   title: "LangBridge",
   description: "Language Translation App",
-  robots: 'follow, index',
-  type: 'website'
+  robots: 'follow, index'
 };
 
 export const metadata = {
   title: meta.title,
   description: meta.description,
-  robots: meta.robots,
-  type: meta.type,
+  robots: meta.robots
 };
 
-export default function RootLayout({
-  // Layouts must accept a children prop.
-  // This will be populated with nested layouts or pages
-  children
-}: PropsWithChildren) {
+export default function RootLayout({  children}: PropsWithChildren) {
   return (
     <html lang="en">
       <body className="bg-gray-900 loading">
         <SupabaseProvider>
-          {/* @ts-expect-error */}
           <Navbar />
           <main>
             {children}
