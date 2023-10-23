@@ -8,7 +8,8 @@ import { Session, User } from '@supabase/supabase-js';
 import cn from 'classnames';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-export const dynamic = 'force-dynamic'
+
+export const dynamic = 'force-dynamic';
 
 type Subscription = Database['public']['Tables']['subscriptions']['Row'];
 type Product = Database['public']['Tables']['products']['Row'];
@@ -82,7 +83,7 @@ export default function Pricing({
               Pricing Plans
             </h1>
             <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
-            Upgrade your Translation
+              Upgrade your Translation
             </p>
             <div className="relative flex self-center mt-12 border rounded-lg bg-zinc-900 border-zinc-800">
               <div className="border border-pink-500 border-opacity-50 divide-y rounded-lg shadow-sm bg-zinc-900 divide-zinc-600">
@@ -122,7 +123,7 @@ export default function Pricing({
                         disabled={false}
                         loading={priceIdLoading === price.id}
                         onClick={() => handleCheckout(price)}
-                        className="block w-full py-2 mt-12 text-sm font-semibold text-center text-white rounded-md hover:bg-zinc-900 "
+                        className="block w-full py-2 mt-12 text-sm font-semibold text-center text-white rounded-md hover:bg-gray-900 "
                       >
                         {products[0].name ===
                         subscription?.prices?.products?.name
@@ -141,13 +142,13 @@ export default function Pricing({
 
   return (
     <section className="bg-gray-900">
-      <div className="max-w-6xl px-4 py-2 mx-auto sm:py-24 sm:px-6 lg:px-4">
+      <div className="max-w-6xl px-4 py-2 mx-auto sm:py-4 sm:px-6 lg:px-4">
         <div className="sm:flex sm:flex-col sm:align-center">
           <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             Pricing Plans
           </h1>
           <p className="max-w-2xl m-auto mt-3 text-xl text-zinc-200 sm:text-center sm:text-2xl">
-          Upgrade your Translation
+            Upgrade your Translation
           </p>
           <div className="relative self-center mt-6 bg-gray-700 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
             {intervals.includes('month') && (
@@ -178,6 +179,12 @@ export default function Pricing({
             )}
           </div>
         </div>
+        <p className="max-w-2xl m-auto mt-3 text-xl text-zinc-200 sm:text-center sm:text-2xl">
+          {!session
+            ? 'Please sign in to choose a plan'
+            : 'You can select from the following plans:'}
+        </p>
+
         <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
           {products.map((product) => {
             const price = product?.prices?.find(
@@ -191,45 +198,44 @@ export default function Pricing({
             }).format((price?.unit_amount || 0) / 100);
             return (
               <div
-              key={product.id}
-              className={cn(
-                'rounded-lg shadow-sm bg-gray-800',
-                'flex flex-col h-full' 
-              )}
-            >
-              <div className="p-6 flex flex-col justify-between h-full">
-                <div>
-                  <h2 className="text-2xl font-semibold leading-6 text-white">
-                    {product.name}
-                  </h2>
-                  <p className="mt-3 text-zinc-300">{product.description}</p>
-                </div>
-             
-                <div>
-                  <p className="mt-5">
-                    <span className="text-5xl font-extrabold white">
-                      {priceString}
-                    </span>
-                    <span className="text-base font-medium text-zinc-100">
-                      /{billingInterval}
-                    </span>
-                  </p>
+                key={product.id}
+                className={cn(
+                  'rounded-lg shadow-sm bg-gray-800',
+                  'flex flex-col h-full'
+                )}
+              >
+                <div className="p-6 flex flex-col justify-between h-full">
                   <div>
-                    <Button
-                      variant="slim"
-                      type="button"
-                      disabled={!session}
-                      loading={priceIdLoading === price.id}
-                      onClick={() => handleCheckout(price)}
-                      className="block w-full py-2 mt-6 text-sm font-semibold text-center text-white rounded-md hover:bg-gray-900"
-                    >
-                      {subscription ? 'Manage' : 'Subscribe'}
-                    </Button>
+                    <h2 className="text-2xl font-semibold leading-6 text-white">
+                      {product.name}
+                    </h2>
+                    <p className="mt-3 text-zinc-300">{product.description}</p>
+                  </div>
+
+                  <div>
+                    <p className="mt-5">
+                      <span className="text-5xl font-extrabold white">
+                        {priceString}
+                      </span>
+                      <span className="text-base font-medium text-zinc-100">
+                        /{billingInterval}
+                      </span>
+                    </p>
+                    <div>
+                      <Button
+                        variant="slim"
+                        type="button"
+                        disabled={!session}
+                        loading={priceIdLoading === price.id}
+                        onClick={() => handleCheckout(price)}
+                        className="block w-full py-2 mt-6 text-sm font-semibold text-center text-white rounded-md hover:bg-gray-900"
+                      >
+                        {subscription ? 'Manage' : 'Subscribe'}
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            
             );
           })}
         </div>

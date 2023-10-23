@@ -45,35 +45,34 @@ function Translator() {
   };
 
   return (
-    <div className="m-2">
-      <div className="p-4">
-        <ComboboxForm setSelectedLanguage={setSelectedLanguage} />
-      </div>
-
-      <div className="flex p-2">
-        <div className="w-1/2 p-2">
+    <div className="p-4 md:mx-2 lg:mx-4 xl:mx-8">
+      <ComboboxForm setSelectedLanguage={setSelectedLanguage} />
+  
+      <div className="md:flex flex-wrap p-2">
+        <div className="w-full md:w-1/2 lg:w-2/5 xl:w-1/2 p-2">
           <Textarea
             placeholder="Input"
             className="border p-2 w-full h-32"
             value={inputText}
-            onChange={handleInputChange} 
+            onChange={handleInputChange}
           />
-          <Button onClick={makeAPICall} className="text-s p-1 mt-4">
+          <Button onClick={makeAPICall} className="text-sm p-1 mt-4">
             Translate Text
           </Button>
         </div>
-
-        <div className="w-1/2 p-2">
+  
+        <div className="w-full md:w-1/2 lg:w-3/5 xl:w-1/2 p-2">
           <Textarea
             placeholder="Output"
             className="border p-2 w-full h-32"
             readOnly
-            value={outputText} 
+            value={outputText}
           />
         </div>
       </div>
     </div>
   );
+  
 }
 
 export default Translator;
