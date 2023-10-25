@@ -28,13 +28,13 @@ export default async function Navbar() {
           <div className="flex items-center space-x-4 lg:space-x-8">
             {user ? (
               <div className="flex items-center">
-                <Link href="/account" className="">
+                <Link href="/account" className="mr-4">
                   Account
                 </Link>
                 <SignOutButton />
               </div>
             ) : (
-              <Link href="/signin" className="">
+              <Link href="/signin" className="mr-1">
                 Sign in
               </Link>
             )}

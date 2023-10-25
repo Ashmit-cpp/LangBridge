@@ -4,7 +4,6 @@ import { stripe } from '@/utils/stripe';
 import { createOrRetrieveCustomer } from '@/utils/supabase-admin';
 import { getURL } from '@/utils/helpers';
 import { Database } from '@/types_db';
-export const dynamic = 'force-dynamic'
 
 export async function POST(req: Request) {
   if (req.method === 'POST') {

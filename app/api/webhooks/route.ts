@@ -5,7 +5,6 @@ import {
   upsertPriceRecord,
   manageSubscriptionStatusChange
 } from '@/utils/supabase-admin';
-export const dynamic = 'force-dynamic'
 
 const relevantEvents = new Set([
   'product.created',

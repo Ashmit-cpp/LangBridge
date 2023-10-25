@@ -1,5 +1,3 @@
-import React from "react";
-
 function Welcome() {
   return (
     <div className="p-4">
@@ -13,8 +11,6 @@ function Welcome() {
       </div>
       <div className="mx-auto max-w-3xl">
         <div className="grid grid-cols-2 gap-4">
-          {" "}
-          {/* Adjust gap here */}
           <ul className="custom-list-bg p-4 list-disc">
             <li>Translate longer texts</li>
             <li>Use a translator without ads</li>
