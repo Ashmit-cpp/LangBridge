@@ -1,7 +1,5 @@
 'use client';
-import Link from 'next/link';
-import { useState } from 'react';
-import { useRef } from 'react';
+
 import Button from '@/components/ui/Button';
 import { Database } from '@/types_db';
 import { postData } from '@/utils/helpers';
@@ -9,7 +7,10 @@ import { getStripe } from '@/utils/stripe-client';
 import { Session, User } from '@supabase/supabase-js';
 import cn from 'classnames';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useRef } from 'react';
 
 export const dynamic = 'force-dynamic';
 
@@ -76,11 +77,10 @@ export default function Pricing({
     }
   };
 
-  const targetContainerRef =  useRef<HTMLDivElement>(null);
+  const targetContainerRef = useRef<HTMLDivElement>(null);
   const scrollToContainer = () => {
     targetContainerRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-  
 
   return (
     <section className="bg-gray-900 w-full body-font">
@@ -89,20 +89,25 @@ export default function Pricing({
           <div className="container mx-auto flex px-5 py-8 md:flex-row flex-col items-center">
             <div className="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center p-2">
               <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-100">
-              Upgrade your Translation
+                Upgrade your Translation
               </h1>
               <p className="mb-8 leading-relaxed text-xl">
-                Copper mug try-hard pitchfork pour-over freegan heirloom neutra
-                air plant cold-pressed tacos poke beard tote bag. Heirloom echo
-                park mlkshk tote bag selvage hot chicken authentic tumeric
-                truffaut hexagon try-hard chambray.
+                With premium access, you'll enjoy an enhanced experience,
+                unlocking a broader range of languages, improved accuracy, and
+                faster translation speeds. Premium users also receive priority
+                customer support, ensuring any queries or issues are promptly
+                addressed. Moreover, your support helps us continue developing
+                and maintaining the platform, ensuring it remains a reliable and
+                cutting-edge tool for your translation needs.
               </p>
               <div className="flex justify-center">
-                <button onClick={scrollToContainer} className="inline-flex text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg">
+                <button
+                  onClick={scrollToContainer}
+                  className="inline-flex text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg"
+                >
                   Get Started
                 </button>
               </div>
-            
             </div>
             <div className="flex items-center justify-center">
               <div className="p-2 lg:max-w-lg lg:w-full md:w-1/2 w-1/2">
@@ -116,9 +121,12 @@ export default function Pricing({
               </div>
             </div>
           </div>
-          <h1 className="p-2 mt-12 text-3xl font-bold text-white sm:text-center sm:text-6xl" ref={targetContainerRef}>
-              Pricing Plans
-            </h1>
+          <h1
+            className="p-2 mt-12 text-3xl font-bold text-white sm:text-center sm:text-6xl"
+            ref={targetContainerRef}
+          >
+            Pricing Plans
+          </h1>
           <div className="relative self-center bg-gray-700 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
             {intervals.includes('month') && (
               <button

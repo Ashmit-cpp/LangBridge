@@ -48,25 +48,22 @@ function PremiumTranslator() {
   return (
     <div className="p-4 md:mx-2 lg:mx-4 xl:mx-8">
       <ComboboxForm setSelectedLanguage={setSelectedLanguage} />
-      <div className="md:flex flex-wrap p-2">
-        <div className="w-full md:w-1/2 lg:w-2/5 xl:w-1/2 p-2">
+      <div className="text-gray-400 md:flex flex-wrap p-2">
+        <div className=" w-full md:w-1/2 lg:w-2/5 xl:w-1/2 p-2">
           <Textarea
-            placeholder="Input"
+            placeholder="Type here"
             className="border p-2 w-full h-32"
             value={inputText}
             onChange={handleInputChange}
           />
-            <Button
-        onClick={makeAPICall}
-        className="text-sm p-2 mt-4 bg-blue-500 text-white rounded-md transition duration-300 transform hover:scale-105 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-md hover:shadow-lg flex items-center justify-center"
-      >
-        <BsStars className="mr-2" /> Translate Text
-      </Button>
+          <Button onClick={makeAPICall} className="text-sm p-1 mt-4">
+            Translate Text
+          </Button>
         </div>
   
         <div className="w-full md:w-1/2 lg:w-3/5 xl:w-1/2 p-2">
           <Textarea
-            placeholder="Output"
+            placeholder="Translated output text"
             className="border p-2 w-full h-32"
             readOnly
             value={outputText}

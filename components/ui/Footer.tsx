@@ -21,28 +21,15 @@ function Footer() {
                 </svg>
               </div>
               <h2 className="text-purple-500 text-lg title-font font-medium">
-                Shooting Stars
+                Copy translation
               </h2>
             </div>
             <div className="flex-grow">
               <p className="text-base leading-relaxed">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine.
+                Just copy the text to the clipboard and view the translation
+                results in the next second, enjoying the pleasure of what you
+                see is what you get.
               </p>
-              <a className="mt-3 text-purple-500 inline-flex items-center">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
             </div>
           </div>
         </div>
@@ -64,28 +51,15 @@ function Footer() {
                 </svg>
               </div>
               <h2 className="text-purple-500 text-lg title-font font-medium">
-                The Catalyzer
+                Optimize translation
               </h2>
             </div>
             <div className="flex-grow">
               <p className="text-base leading-relaxed">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine.
+                Solve the garbled code problems caused by redundant sentence
+                fragmentation and line breaks, and the translation results are
+                more in line with reading habits.
               </p>
-              <a className="mt-3 text-purple-500 inline-flex items-center">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
             </div>
           </div>
         </div>
@@ -108,28 +82,15 @@ function Footer() {
                 </svg>
               </div>
               <h2 className="text-purple-500 text-lg title-font font-medium">
-                Neptune
+                Drag and drop to copy
               </h2>
             </div>
             <div className="flex-grow">
               <p className="text-base leading-relaxed">
-                Blue bottle crucifix vinyl post-ironic four dollar toast vegan
-                taxidermy. Gastropub indxgo juice poutine.
+                It is infinitely close to the system-level open source
+                implementation of cross-translation. You can copy the
+                translation by dragging and selecting it.
               </p>
-              <a className="mt-3 text-purple-500 inline-flex items-center">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"></path>
-                </svg>
-              </a>
             </div>
           </div>
         </div>

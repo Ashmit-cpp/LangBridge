@@ -72,7 +72,7 @@ export function ComboboxForm({ setSelectedLanguage }: ComboboxFormProps) {
           name="language"
           render={({ field }) => (
             <FormItem className="flex flex-col ">
-              <FormLabel>Supported Languages:</FormLabel>
+              <FormLabel className="text-purple-400">Supported Languages:</FormLabel>
               <Popover >
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -89,7 +89,7 @@ export function ComboboxForm({ setSelectedLanguage }: ComboboxFormProps) {
                             (language) => language.value === field.value
                           )?.label
                         : "Select language"}
-                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50 " />
+                      <ChevronsUpDown className="text-purple-500 ml-2 h-4 w-4 shrink-0 opacity-50 " />
                     </Button>
                   </FormControl>
                 </PopoverTrigger>
