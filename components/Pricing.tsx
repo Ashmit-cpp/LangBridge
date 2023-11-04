@@ -1,13 +1,15 @@
 'use client';
-
+import Link from 'next/link';
+import { useState } from 'react';
+import { useRef } from 'react';
 import Button from '@/components/ui/Button';
 import { Database } from '@/types_db';
 import { postData } from '@/utils/helpers';
 import { getStripe } from '@/utils/stripe-client';
 import { Session, User } from '@supabase/supabase-js';
 import cn from 'classnames';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 
 export const dynamic = 'force-dynamic';
 
@@ -74,83 +76,50 @@ export default function Pricing({
     }
   };
 
-  if (products.length === 1)
-    return (
-      <section className="bg-gray-900">
-        <div className="max-w-6xl px-4 py-4 mx-auto sm:py-24 sm:px-6 lg:px-8 mt-2">
-          <div className="sm:flex sm:flex-col sm:align-center">
-            <h1 className="text-2xl font-extrabold text-white sm:text-center sm:text-6xl">
-              Pricing Plans
-            </h1>
-            <p className="max-w-2xl m-auto mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl">
-              Upgrade your Translation
-            </p>
-            <div className="relative flex self-center mt-12 border rounded-lg bg-zinc-900 border-zinc-800">
-              <div className="border border-pink-500 border-opacity-50 divide-y rounded-lg shadow-sm bg-zinc-900 divide-zinc-600">
-                <div className="p-6 py-2 m-1 text-2xl font-medium text-white rounded-md shadow-sm border-zinc-800 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8">
-                  {products[0].name}
-                </div>
-              </div>
-            </div>
-            <div className="mt-6 space-y-4 sm:mt-12 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
-              {products[0].prices?.map((price) => {
-                const priceString =
-                  price.unit_amount &&
-                  new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: price.currency!,
-                    minimumFractionDigits: 0
-                  }).format(price.unit_amount / 100);
-
-                return (
-                  <div
-                    key={price.interval}
-                    className="divide-y rounded-lg shadow-sm divide-zinc-600 bg-zinc-900"
-                  >
-                    <div className="p-6">
-                      <p>
-                        <span className="text-5xl font-extrabold white">
-                          {priceString}
-                        </span>
-                        <span className="text-base font-medium text-zinc-100">
-                          /{price.interval}
-                        </span>
-                      </p>
-                      <p className="mt-4 text-zinc-300">{price.description}</p>
-                      <Button
-                        variant="slim"
-                        type="button"
-                        disabled={false}
-                        loading={priceIdLoading === price.id}
-                        onClick={() => handleCheckout(price)}
-                        className="block w-full py-2 mt-12 text-sm font-semibold text-center text-white rounded-md hover:bg-gray-900 "
-                      >
-                        {products[0].name ===
-                        subscription?.prices?.products?.name
-                          ? 'Manage'
-                          : 'Subscribe'}
-                      </Button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-    );
+  const targetContainerRef =  useRef<HTMLDivElement>(null);
+  const scrollToContainer = () => {
+    targetContainerRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
 
   return (
-    <section className="bg-gray-900">
-      <div className="max-w-6xl px-4 py-2 mx-auto sm:py-4 sm:px-6 lg:px-4">
-        <div className="sm:flex sm:flex-col sm:align-center">
-          <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
-            Pricing Plans
-          </h1>
-          <p className="max-w-2xl m-auto mt-3 text-xl text-zinc-200 sm:text-center sm:text-2xl">
-            Upgrade your Translation
-          </p>
-          <div className="relative self-center mt-6 bg-gray-700 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
+    <section className="bg-gray-900 w-full body-font">
+      <div className="max-w-6xl px-4 py-2 mx-auto sm:py-4 sm:px-6 lg:px-2">
+        <div className="mt-10 sm:flex sm:flex-col sm:align-center">
+          <div className="container mx-auto flex px-5 py-8 md:flex-row flex-col items-center">
+            <div className="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center p-2">
+              <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-100">
+              Upgrade your Translation
+              </h1>
+              <p className="mb-8 leading-relaxed text-xl">
+                Copper mug try-hard pitchfork pour-over freegan heirloom neutra
+                air plant cold-pressed tacos poke beard tote bag. Heirloom echo
+                park mlkshk tote bag selvage hot chicken authentic tumeric
+                truffaut hexagon try-hard chambray.
+              </p>
+              <div className="flex justify-center">
+                <button onClick={scrollToContainer} className="inline-flex text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded text-lg">
+                  Get Started
+                </button>
+              </div>
+            
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="p-2 lg:max-w-lg lg:w-full md:w-1/2 w-1/2">
+                <Image
+                  className="object-center rounded"
+                  src="/icon.png"
+                  alt="hero"
+                  width={256}
+                  height={256}
+                />
+              </div>
+            </div>
+          </div>
+          <h1 className="p-2 mt-12 text-3xl font-bold text-white sm:text-center sm:text-6xl" ref={targetContainerRef}>
+              Pricing Plans
+            </h1>
+          <div className="relative self-center bg-gray-700 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
             {intervals.includes('month') && (
               <button
                 onClick={() => setBillingInterval('month')}
@@ -179,13 +148,13 @@ export default function Pricing({
             )}
           </div>
         </div>
-        <p className="max-w-2xl m-auto mt-3 text-xl text-zinc-200 sm:text-center sm:text-2xl">
+        <p className="max-w-2xl m-auto mt-3 text-xl text-purple-500 sm:text-center sm:text-2xl">
           {!session
             ? 'Please sign in to choose a plan'
             : 'You can select from the following plans:'}
         </p>
 
-        <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
+        <div className="mb-6 mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
           {products.map((product) => {
             const price = product?.prices?.find(
               (price) => price.interval === billingInterval
@@ -206,7 +175,7 @@ export default function Pricing({
               >
                 <div className="p-6 flex flex-col justify-between h-full">
                   <div>
-                    <h2 className="text-2xl font-semibold leading-6 text-white">
+                    <h2 className="text-2xl font-semibold leading-6 text-purple-500">
                       {product.name}
                     </h2>
                     <p className="mt-3 text-zinc-300">{product.description}</p>

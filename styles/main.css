@@ -23,7 +23,7 @@ body {
     'Helvetica', sans-serif;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  @apply text-white bg-gray-800 antialiased;
+  @apply text-white bg-gray-900 antialiased;
 }
 
 body {

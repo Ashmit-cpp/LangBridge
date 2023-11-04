@@ -48,10 +48,10 @@ function Translator() {
     <div className="p-4 md:mx-2 lg:mx-4 xl:mx-8">
       <ComboboxForm setSelectedLanguage={setSelectedLanguage} />
   
-      <div className="md:flex flex-wrap p-2">
-        <div className="w-full md:w-1/2 lg:w-2/5 xl:w-1/2 p-2">
+      <div className="text-gray-400 md:flex flex-wrap p-2">
+        <div className=" w-full md:w-1/2 lg:w-2/5 xl:w-1/2 p-2">
           <Textarea
-            placeholder="Input"
+            placeholder="Type here"
             className="border p-2 w-full h-32"
             value={inputText}
             onChange={handleInputChange}
@@ -63,7 +63,7 @@ function Translator() {
   
         <div className="w-full md:w-1/2 lg:w-3/5 xl:w-1/2 p-2">
           <Textarea
-            placeholder="Output"
+            placeholder="Translated output text"
             className="border p-2 w-full h-32"
             readOnly
             value={outputText}

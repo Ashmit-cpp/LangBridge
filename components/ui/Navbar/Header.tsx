@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
             </Link>
           </div>
           <div>
-            <Link href="/" className="font-mono text-xl	font-bold	">
+            <Link href="/" className="font-mono text-xl	font-bold  text-gray-200 hover:text-purple-500	">
               LangBridge
             </Link>
           </div>
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
               <li>
                 <Link
                   href="/pricing"
-                  className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                  className="font-medium text-gray-200 hover:text-purple-600 px-4 py-3 flex items-center transition duration-150 ease-in-out"
                 >
                   Pricing
                 </Link>
@@ -58,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                     <div className="flex items-center">
                       <Link
                         href="/account"
-                        className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                        className="font-medium text-gray-200 hover:text-purple-600 px-4 py-3 flex items-center transition duration-150 ease-in-out"
                       >
                         {' '}
                         Account
@@ -68,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                   ) : (
                     <Link
                       href="/signin"
-                      className="font-medium text-purple-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                      className="font-medium text-gray-200 hover:text-purple-600 px-4 py-3 flex items-center transition duration-150 ease-in-out"
                     >
                       {' '}
                       Sign in

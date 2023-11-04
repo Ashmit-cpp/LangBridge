@@ -2,6 +2,7 @@ import Translator from "@/components/Translator";
 import PremiumTranslator from "@/components/PremiumTranslator";
 import Welcome from "@/components/ui/welcome";
 import { getSubscription } from '@/app/supabase-server';
+import Footer from "@/components/ui/Footer";
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
@@ -14,9 +15,10 @@ export default async function Home() {
   return (
     <div>
       <Welcome />
-      <div className="bg-gray-800 mx-4 shadow-xl my-2 border-4 border-gray-600 rounded-2xl">
+      <div className="bg-gray-800 mx-20 shadow-xl my-2 border-4 border-gray-600 rounded-2xl">
         {subscriptionStatus === "active" ? <PremiumTranslator/> : <Translator/>}
       </div>
+      <Footer/>
     </div>
   );
 }
