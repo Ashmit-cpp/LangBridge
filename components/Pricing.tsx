@@ -83,9 +83,9 @@ export default function Pricing({
   };
 
   return (
-    <section className="bg-gray-900 w-full body-font">
+    <section className="bg-gradient-to-r from-gray-900 from-10% via-gray-800 via-50% to-gray-900 to-90%w-full body-font">
       <div className="max-w-6xl px-4 py-2 mx-auto sm:py-4 sm:px-6 lg:px-2">
-        <div className="mt-10 sm:flex sm:flex-col sm:align-center">
+        <div className="mt-12 sm:flex sm:flex-col sm:align-center">
           <div className="container mx-auto flex px-5 py-8 md:flex-row flex-col items-center">
             <div className="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center p-2">
               <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-100">
@@ -156,7 +156,7 @@ export default function Pricing({
             )}
           </div>
         </div>
-        <p className="max-w-2xl m-auto mt-3 text-xl text-purple-500 sm:text-center sm:text-2xl">
+        <p className="max-w-2xl m-auto mt-3 text-xl text-purple-400 sm:text-center sm:text-2xl">
           {!session
             ? 'Please sign in to choose a plan'
             : 'You can select from the following plans:'}
@@ -183,7 +183,7 @@ export default function Pricing({
               >
                 <div className="p-6 flex flex-col justify-between h-full">
                   <div>
-                    <h2 className="text-2xl font-semibold leading-6 text-purple-500">
+                    <h2 className="text-2xl font-semibold leading-6 text-purple-400">
                       {product.name}
                     </h2>
                     <p className="mt-3 text-zinc-300">{product.description}</p>

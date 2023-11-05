@@ -48,23 +48,27 @@ function Translator() {
     <div className="p-4 md:mx-2 lg:mx-4 xl:mx-8">
       <ComboboxForm setSelectedLanguage={setSelectedLanguage} />
   
-      <div className="text-gray-400 md:flex flex-wrap p-2">
+      <div className="md:flex flex-wrap p-2">
         <div className=" w-full md:w-1/2 lg:w-2/5 xl:w-1/2 p-2">
           <Textarea
             placeholder="Type here"
-            className="border p-2 w-full h-32"
+            className="placeholder:text-gray-500 border p-2 w-full h-32"
             value={inputText}
             onChange={handleInputChange}
           />
           <Button onClick={makeAPICall} className="text-sm p-1 mt-4">
             Translate Text
           </Button>
+          <a href='/pricing' className="text-purple-400 ml-4 p-2">
+                  {' '}
+                  Unlock Premium to upload files.
+                </a>
         </div>
   
         <div className="w-full md:w-1/2 lg:w-3/5 xl:w-1/2 p-2">
           <Textarea
             placeholder="Translated output text"
-            className="border p-2 w-full h-32"
+            className="placeholder:text-gray-500 border p-2 w-full h-32"
             readOnly
             value={outputText}
           />

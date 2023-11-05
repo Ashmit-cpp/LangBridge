@@ -1,18 +1,41 @@
-import Image from 'next/image';
+'use client';
+
+import Footer from '@/components/ui/Features';
+import { useRef } from 'react';
 
 function Welcome() {
+  const targetContainerRef = useRef<HTMLDivElement>(null);
+  const scrollToContainer = () => {
+    targetContainerRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <div className="text-gray-200 body-font">
       <div>
         <section className="text-white-600 body-font">
           <div className="container px-5 py-8 mx-auto">
-            <section className="text-gray-600 body-font">
+            <section className="">
               <div className="container px-5 py-8 mx-auto">
                 <div className="flex flex-col text-center w-full mb-1">
-                  <h2 className="text-purple-500 text-2xl font-medium tracking-widest mb-1">
+                  <h1 className="p-4 mt-10 bg-gradient-to-r from-purple-900  to-purple-200 bg-clip-text text-3xl text-transparent font-mono font-extrabold sm:text-center sm:text-6xl mb-2">
+                    LangBridge
+                  </h1>
+                  <h2 className="text-gray-200 text-2xl font-medium mb-10">
                     A Top-Tier Translator from LangBridge
                   </h2>
-                  <h1 className="text-2xl sm:text-3xl font-medium text-gray-200">
+                  <div className="flex justify-center">
+                    <button
+                      onClick={scrollToContainer}
+                      className="inline-flex font-semibold text-gray-100 bg-purple-600 border-0 py-2 px-6 focus:outline-none hover:bg-purple-700 rounded text-lg"
+                    >
+                      Get Started
+                    </button>
+                  </div>
+                  <Footer />
+
+                  <h1
+                    className="mt-10 text-2xl sm:text-3xl font-medium text-gray-200"
+                    ref={targetContainerRef}
+                  >
                     What you can do with this online translator
                   </h1>
                 </div>

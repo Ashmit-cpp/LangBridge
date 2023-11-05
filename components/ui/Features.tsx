@@ -2,8 +2,8 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div className="text-gray-200 body-font">
-      <div className="flex flex-wrap mx-20 mb-10 mt-10">
+    <div className="text-gray-200 body-font sm:mx-auto lg:w-9/10 -mx-2 sm:mb-2 flex flex-wrap">
+      <div className="flex flex-wrap mx-12 mb-10 mt-10">
         <div className="md:w-1/3 p-4">
           <div className="flex rounded-lg h-full bg-slate-500 bg-opacity-20  hover:shadow-2xl p-8 flex-col">
             <div className="flex items-center mb-3">
@@ -20,7 +20,7 @@ function Footer() {
                   <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                 </svg>
               </div>
-              <h2 className="text-purple-500 text-lg title-font font-medium">
+              <h2 className="text-purple-400 text-lg title-font font-medium">
                 Copy translation
               </h2>
             </div>
@@ -50,7 +50,7 @@ function Footer() {
                   <circle cx="12" cy="7" r="4"></circle>
                 </svg>
               </div>
-              <h2 className="text-purple-500 text-lg title-font font-medium">
+              <h2 className="text-purple-400 text-lg title-font font-medium">
                 Optimize translation
               </h2>
             </div>
@@ -81,7 +81,7 @@ function Footer() {
                   <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
                 </svg>
               </div>
-              <h2 className="text-purple-500 text-lg title-font font-medium">
+              <h2 className="text-purple-400 text-lg title-font font-medium">
                 Drag and drop to copy
               </h2>
             </div>
