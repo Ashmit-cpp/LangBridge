@@ -33,7 +33,7 @@ export default async function Account() {
    
     
   return (
-    <section className="mb-32 bg-gray-900">
+    <section className="mb-32 ">
       <div className="max-w-6xl px-4 py-8 mx-auto sm:px-6 sm:pt-24 lg:px-8">
         <div className="sm:align-center sm:flex sm:flex-col">
           <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
@@ -44,7 +44,7 @@ export default async function Account() {
           </p>
         </div>
       </div>
-      <div className="p-4">
+      <div className="p-4 ">
         <Card
           title="Your Plan"
           description={
@@ -76,8 +76,8 @@ interface Props {
 
 function Card({ title, description, footer, children }: Props) {
   return (
-    <div className="w-full max-w-3xl m-auto my-8 border rounded-md p border-gray-700">
-      <div className="px-5 py-4">
+    <div className="bg-gradient-to-bl from-gray-900 from-10% via-gray-800 via-50% to-gray-900 to-90% w-full max-w-3xl m-auto my-8 border rounded-md p border-gray-700">
+      <div className="px-12 py-4">
         <h3 className="mb-1 text-4xl font-medium">{title}</h3>
         <p className="text-gray-300 text-xl">{description}</p>
         {children}
